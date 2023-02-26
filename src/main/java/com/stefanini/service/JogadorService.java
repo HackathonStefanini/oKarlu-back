@@ -11,6 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.Response;
+import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,8 +21,12 @@ public class JogadorService {
     @Inject
     JogadorRepository jogadorRepository;
 
+    @Transactional
     public void salvar(JogadorDTO jogadorDTO) {
-        jogadorRepository.save(new Jogador(jogadorDTO));
+        Jogador jogador = new Jogador(jogadorDTO);
+        String senha = Base64.getEncoder().encodeToString(jogadorDTO.getPassword().getBytes());
+        jogador.setPassword(senha);
+        jogadorRepository.save(jogador);
     }
 
     public Jogador pegarPorId(Long id) {
@@ -32,10 +37,12 @@ public class JogadorService {
         return jogador;
     }
 
+    @Transactional
     public void alterar(Jogador jogador) {
         jogadorRepository.update(jogador);
     }
 
+    @Transactional
     public void deletar(Long id) {
         jogadorRepository.delete(id);
     }

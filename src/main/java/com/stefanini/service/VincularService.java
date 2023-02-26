@@ -13,6 +13,7 @@ public class VincularService {
     @Inject
     VincularRepository vincularRepository;
 
+    @Transactional
     public void vincular(Long idJogador, Long idStefamon){
         try {
             vincularRepository.vincularJogadorStefanon(idJogador, idStefamon);
