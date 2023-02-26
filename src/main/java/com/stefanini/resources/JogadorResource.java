@@ -1,5 +1,6 @@
 package com.stefanini.resources;
 
+import com.stefanini.dto.JogadorDTO;
 import com.stefanini.entity.Jogador;
 import com.stefanini.service.JogadorService;
 
@@ -27,8 +28,8 @@ public class JogadorResource {
     }
 
     @POST
-    public Response salvar(@Valid Jogador jogador) {
-        jogadorService.salvar(jogador);
+    public Response salvar(@Valid JogadorDTO jogadorDTO) {
+        jogadorService.salvar(jogadorDTO);
         return Response.status(Response.Status.CREATED).build();
     }
 

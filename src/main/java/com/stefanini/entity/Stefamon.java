@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Stefamon {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

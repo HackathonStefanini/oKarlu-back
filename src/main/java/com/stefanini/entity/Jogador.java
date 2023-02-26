@@ -29,7 +29,7 @@ public class Jogador {
     @ManyToMany
     @JoinTable(name = "Jogador_Stefamon",
             joinColumns = {@JoinColumn(name = "IdJogador")},
-            inverseJoinColumns = {@JoinColumn(name = "IdStefamon")})
+            inverseJoinColumns = {@JoinColumn(name = "Id")})
     private List<Stefamon> stefamons = new ArrayList<>();
 
     public Jogador() {

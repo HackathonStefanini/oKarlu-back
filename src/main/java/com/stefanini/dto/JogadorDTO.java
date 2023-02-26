@@ -20,6 +20,7 @@ public class JogadorDTO {
 
     @NotBlank
     private BigDecimal saldo;
+
     private List<Stefamon> stefamon;
 
     public JogadorDTO(Jogador jogador) {
